@@ -565,6 +565,9 @@ func (sched *Scheduler) scheduleOne(ctx context.Context) {
 
 	klog.V(3).Infof("Attempting to schedule pod: %v/%v", pod.Namespace, pod.Name)
 
+	// 开始对pod进行二次赋值
+	pod.Labels["test"] = "yinlei"
+
 	// Synchronously attempt to find a fit for the pod.
 	start := time.Now()
 	state := framework.NewCycleState()
